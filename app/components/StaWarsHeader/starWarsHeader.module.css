@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgb(60, 180, 166);
+  height: 70px;
+}
+
+.button {
+  width: 100px;
+  margin-right: 9px;
+  white-space: nowrap;
+}
+.select {
+  width: 150px;
+  text-align: center;
+  margin-left: 9px;
+}
+.content {
+  border-radius: 10px;
+  margin-top: 9px;
+  height: 50px;
+  background-color: rgb(5, 56, 39);
+  color: aliceblue;
+  font-size: medium;
+}
+
+.logo {
+  font-family: "Star Jedi", sans-serif; /* Use a Star Wars-like font if available */
+  font-size: 2.5em;
+  color: rgb(60, 180, 166);
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+.message {
+  font-family: "Star Jedi", sans-serif; /* Use a Star Wars-like font if available */
+  color: rgb(60, 180, 166);
+  text-align: center;
+  margin: 0, auto;
+  font-size: large;
+}
