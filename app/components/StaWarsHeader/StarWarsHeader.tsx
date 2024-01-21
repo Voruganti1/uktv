@@ -36,7 +36,7 @@ function StarWarsHeader(props: StarWarsHeaderProps) {
     <>
       <h1 className={styles.logo}>StarWars</h1>
       <p className={styles.message}>
-        Select one of the options from the above dropdown to get relavent
+        Select one of the options from the below dropdown to get relevant
         information
       </p>
 
