@@ -14,8 +14,9 @@ function StarWarsHeader(props: StarWarsHeaderProps) {
     navigateTo("/" + event.target.value);
   };
 
-  const sortButtonHandler = (event) => {
-    const url = "/" + props.selectedItem + "/" + event.target.value;
+  const sortButtonHandler = (event: React.MouseEvent<HTMLInputElement>) => {
+    const button = event.target as HTMLInputElement;
+    const url = "/" + props.selectedItem + "/" + button?.value;
     console.log(url);
     if (
       props.sortBy === null ||
