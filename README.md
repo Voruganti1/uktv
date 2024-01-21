@@ -20,17 +20,20 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Design
 
-To learn more about Next.js, take a look at the following resources:
+Created following interfaces to represent the data:
+1) TypeMetadata: To represent each start wars data type i.e., starships, vehciles and films
+2) FieldMetadata: To represent mapping of the properties in api response and data fields on the UI and other required metadata like sorting. This can be expanded to include other metadata information, if required.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Created a map object containing starwars data type i.e., films, vehicles etc., and relavant fields metadata to drive the UI. Used the map object to generate the static paths for different types of data and sorting of data.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Further improvements
 
-## Deploy on Vercel
+There is a scope to improve the code in the following areas:
+1) Error handling: At this moment, the error handling in the code is very minimal. I feel that there is a log of scope make improvments in that area.
+2) Metadata: At this moment, type and field metadata information is being stored in a Map object. In the future, we could store the information in database, so that we cam easily add new types of data like people etc., without making any changes to the UI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Final thoughts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I have made few assumptions like using a dropdownlist instead of input element like a textbox. Certainly there is a lot of scope to improve the UI, but I hope current UI is sufficient enough for the task. 
