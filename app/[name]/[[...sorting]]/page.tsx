@@ -1,7 +1,8 @@
-import fetchStarWarsData from "@/app/helpers/fetchStarWarsData";
+import getStarWarsMetadata from "@/app/helpers/getStarWarsMetadata";
 import StarWarsHeader from "@/app/components/StaWarsHeader/StarWarsHeader";
 import StarWarsDataGrid from "@/app/components/StatWarsDataGrid/StarWarsDataGrid";
 import styles from "./page.module.css";
+import fetchStarWarsData from "@/app/helpers/fetchStarWarsData";
 
 export interface StaticDataParams {
   name: string;
@@ -9,7 +10,7 @@ export interface StaticDataParams {
 }
 
 export const generateStaticParams = () => {
-  const mapping = fetchStarWarsData();
+  const mapping = getStarWarsMetadata();
   const staticRoutes: StaticDataParams[] = [];
   const keys = Array.from(mapping.keys());
   keys.forEach((key) => {
@@ -24,24 +25,12 @@ export const generateStaticParams = () => {
   return staticRoutes;
 };
 
-export const getStarWarsData = async (infoAbout: string) => {
-  let res = await fetch("https://swapi.dev/api/" + infoAbout);
-  let response = await res.json();
-  const data: any[] = response.results;
-  while (response.next !== null) {
-    res = await fetch(response.next);
-    response = await res.json();
-    data.push(...response.results);
-  }
-  return data;
-};
-
 export default async function starWarsPage({
   params,
 }: {
   params: StaticDataParams;
 }) {
-  const data = await getStarWarsData(params.name);
+  const data = await fetchStarWarsData(params.name);
   if (params.sorting?.length === 2) {
     if (params.sorting[1] === "asc") {
       data.sort((a, b) =>
@@ -53,7 +42,7 @@ export default async function starWarsPage({
       );
     }
   }
-  const mapping = fetchStarWarsData();
+  const mapping = getStarWarsMetadata();
   const metadata = mapping.get(params.name);
 
   return (

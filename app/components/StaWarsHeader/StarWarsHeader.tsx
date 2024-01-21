@@ -2,7 +2,7 @@
 import React from "react";
 import navigateTo from "../../helpers/navigateTo";
 import styles from "./starWarsHeader.module.css";
-import fetchStarWarsData from "@/app/helpers/fetchStarWarsData";
+import getStarWarsMetadata from "@/app/helpers/getStarWarsMetadata";
 
 export interface StarWarsHeaderProps {
   selectedItem: string;
@@ -26,7 +26,7 @@ function StarWarsHeader(props: StarWarsHeaderProps) {
     } else navigateTo(url + "/desc");
   };
 
-  const mapping = fetchStarWarsData();
+  const mapping = getStarWarsMetadata();
   const metadata = mapping.get(props.selectedItem);
   const sortableFields = metadata?.fields.filter((field) => field.isSortable);
   const keys = Array.from(mapping.keys());
