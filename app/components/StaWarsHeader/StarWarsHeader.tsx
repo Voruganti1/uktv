@@ -14,7 +14,7 @@ function StarWarsHeader(props: StarWarsHeaderProps) {
     navigateTo("/" + event.target.value);
   };
 
-  const sortButtonHandler = (event: { target: { value: string } }) => {
+  const sortButtonHandler = (event) => {
     const url = "/" + props.selectedItem + "/" + event.target.value;
     console.log(url);
     if (
