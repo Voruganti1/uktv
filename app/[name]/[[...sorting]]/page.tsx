@@ -16,10 +16,12 @@ export const generateStaticParams = () => {
   keys.forEach((key) => {
     staticRoutes.push({ name: key, sorting: [] });
     const metadata = mapping.get(key);
-    metadata?.fields.forEach((field) => {
-      staticRoutes.push({ name: key, sorting: [field.key, "asc"] });
-      staticRoutes.push({ name: key, sorting: [field.key, "desc"] });
-    });
+    metadata?.fields
+      .filter((x) => x.isSortable)
+      .forEach((field) => {
+        staticRoutes.push({ name: key, sorting: [field.key, "asc"] });
+        staticRoutes.push({ name: key, sorting: [field.key, "desc"] });
+      });
   });
 
   return staticRoutes;
