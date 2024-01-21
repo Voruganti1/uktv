@@ -23,8 +23,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Design
 
 Created following interfaces to represent the data:
-TypeMetadata: To represent each start wars data type i.e., starships, vehciles and films
-FieldMetadata: To represent mapping of the properties in api response and data fields on the UI and other required metadata like sorting. This can be expanded to include other metadata information, if required.
+1) TypeMetadata: To represent each start wars data type i.e., starships, vehciles and films
+2) FieldMetadata: To represent mapping of the properties in api response and data fields on the UI and other required metadata like sorting. This can be expanded to include other metadata information, if required.
 
 Created a map object containing starwars data type i.e., films, vehicles etc., and relavant fields metadata to drive the UI. Used the map object to generate the static paths for different types of data and sorting of data.
 
