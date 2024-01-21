@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import navigateTo from "../../helpers/navigateTo";
 import styles from "./starWarsHeader.module.css";
 import getStarWarsMetadata from "@/app/helpers/getStarWarsMetadata";
@@ -14,9 +14,8 @@ function StarWarsHeader(props: StarWarsHeaderProps) {
     navigateTo("/" + event.target.value);
   };
 
-  const sortButtonHandler = (event: React.MouseEvent<HTMLInputElement>) => {
-    const button = event.target as HTMLInputElement;
-    const url = "/" + props.selectedItem + "/" + button?.value;
+  const sortButtonHandler = (event: Event & { target: HTMLButtonElement }) => {
+    const url = "/" + props.selectedItem + "/" + event.target.value;
     console.log(url);
     if (
       props.sortBy === null ||
